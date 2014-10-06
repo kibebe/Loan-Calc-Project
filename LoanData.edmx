@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LemsDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LemsDataModelStoreContainer">
+          <EntitySet Name="AdminDetailAudit" EntityType="LemsDataModel.Store.AdminDetailAudit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Application" EntityType="LemsDataModel.Store.Application" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Audit" EntityType="LemsDataModel.Store.Audit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="contact" EntityType="LemsDataModel.Store.contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LostPassword" EntityType="LemsDataModel.Store.LostPassword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Message" EntityType="LemsDataModel.Store.Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Profile" EntityType="LemsDataModel.Store.Profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StateAudit" EntityType="LemsDataModel.Store.StateAudit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Statu" EntityType="LemsDataModel.Store.Statu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Token" EntityType="LemsDataModel.Store.Token" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserTable" EntityType="LemsDataModel.Store.UserTable" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AdminDetailAudit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="Roles" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="LoanType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Principle" Type="int" Nullable="false" />
+          <Property Name="InterestRate" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="TotalInterest" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="TotalInstalments" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Name="AuditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IPAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AreaAccessed" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="TimeSent" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LostPassword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="MarkRead" Type="int" Nullable="false" />
+          <Property Name="New" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="DateCreated" Type="date" Nullable="false" />
+          <Property Name="ShareDeposit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateAudit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LoanType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Read" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tokenid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="ConfirmPassword" Type="nvarchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LemsDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LemsDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Profiles" EntityType="LemsDataModel.Profile" />
+          <EntitySet Name="UserTables" EntityType="LemsDataModel.UserTable" />
+          <EntitySet Name="Applications" EntityType="LemsDataModel.Application" />
+          <EntitySet Name="Status" EntityType="LemsDataModel.Statu" />
+          <EntitySet Name="StateAudits" EntityType="LemsDataModel.StateAudit" />
+          <EntitySet Name="AdminDetailAudits" EntityType="LemsDataModel.AdminDetailAudit" />
+          <EntitySet Name="LostPasswords" EntityType="LemsDataModel.LostPassword" />
+          <EntitySet Name="Tokens" EntityType="LemsDataModel.Token" />
+          <EntitySet Name="Audits" EntityType="LemsDataModel.Audit" />
+          <EntitySet Name="Messages" EntityType="LemsDataModel.Message" />
+          <EntitySet Name="contacts" EntityType="LemsDataModel.contact" />
+        </EntityContainer>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="ShareDeposit" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AccountNo" Nullable="false" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Principle" Nullable="false" />
+          <Property Type="Decimal" Name="InterestRate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="TotalInterest" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="TotalInstalments" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AccountNo" Nullable="false" />
+          <Property Type="Int32" Name="State" Nullable="false" />
+          <Property Type="Int32" Name="Read" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateAudit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminDetailAudit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Timestamp" Nullable="false" />
+          <Property Type="String" Name="Roles" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LostPassword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="Tokenid" Nullable="false" />
+          <Property Type="Int32" Name="AccountNo" Nullable="false" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Type="Int32" Name="AuditID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IPAddress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AreaAccessed" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AccountNo" Nullable="false" />
+          <Property Type="Int32" Name="MarkRead" Nullable="false" />
+          <Property Type="Int32" Name="New" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeSent" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LemsDataModelStoreContainer" CdmEntityContainer="LemsDataEntities">
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="LemsDataModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ShareDeposit" ColumnName="ShareDeposit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTables">
+            <EntityTypeMapping TypeName="LemsDataModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="LemsDataModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TotalInstalments" ColumnName="TotalInstalments" />
+                <ScalarProperty Name="TotalInterest" ColumnName="TotalInterest" />
+                <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+                <ScalarProperty Name="Principle" ColumnName="Principle" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="LemsDataModel.Statu">
+              <MappingFragment StoreEntitySet="Statu">
+                <ScalarProperty Name="Read" ColumnName="Read" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateAudits">
+            <EntityTypeMapping TypeName="LemsDataModel.StateAudit">
+              <MappingFragment StoreEntitySet="StateAudit">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminDetailAudits">
+            <EntityTypeMapping TypeName="LemsDataModel.AdminDetailAudit">
+              <MappingFragment StoreEntitySet="AdminDetailAudit">
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LostPasswords">
+            <EntityTypeMapping TypeName="LemsDataModel.LostPassword">
+              <MappingFragment StoreEntitySet="LostPassword">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="LemsDataModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Tokenid" ColumnName="Tokenid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audits">
+            <EntityTypeMapping TypeName="LemsDataModel.Audit">
+              <MappingFragment StoreEntitySet="Audit">
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="AreaAccessed" ColumnName="AreaAccessed" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="LemsDataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="New" ColumnName="New" />
+                <ScalarProperty Name="MarkRead" ColumnName="MarkRead" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="LemsDataModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="TimeSent" ColumnName="TimeSent" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LoanData">
+        <EntityTypeShape EntityType="LemsDataModel.Profile" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LemsDataModel.UserTable" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="LemsDataModel.Application" Width="1.5" PointX="0.75" PointY="3.75" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="LemsDataModel.Statu" Width="1.5" PointX="3.375" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="LemsDataModel.StateAudit" Width="1.5" PointX="3.375" PointY="6.75" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="LemsDataModel.AdminDetailAudit" Width="1.5" PointX="5.375" PointY="6.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="LemsDataModel.LostPassword" Width="1.5" PointX="7.375" PointY="0.75" Height="1.4033821614583317" />
+        <EntityTypeShape EntityType="LemsDataModel.Token" Width="1.5" PointX="0.75" PointY="7.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="LemsDataModel.Audit" Width="1.5" PointX="5.375" PointY="3.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="LemsDataModel.Message" Width="1.5" PointX="7.375" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="LemsDataModel.contact" Width="1.5" PointX="7.375" PointY="6.75" Height="2.1725878906250031" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
